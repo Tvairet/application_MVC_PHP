@@ -124,16 +124,6 @@ Comptes de test
 
 Les comptes sont créés par database/seed.sql.
 
-Administrateur
-
-Email : admin@entreprise.com
-Mot de passe : admin123!
-
-Utilisateur
-
-Email : alexandre.martin@email.fr
-Mot de passe : Password123!
-
 6. Tests
 
 PHPUnit
