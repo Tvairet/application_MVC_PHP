@@ -7,7 +7,7 @@
                 <h4 class="mb-0"><i class="fa-solid fa-plus-circle me-2"></i>Proposer un trajet</h4>
             </div>
             <div class="card-body p-4">
-                <form action="/ride/store" method="POST">
+                <form action="<?= BASE_URL ?>/ride/store" method="POST">
                     
                     <h6 class="text-primary fw-bold mb-3 border-bottom pb-2">Informations du conducteur</h6>
                     <div class="row g-3 mb-4">
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <a href="/" class="btn btn-outline-secondary">Annuler</a>
+                        <a href="<?= BASE_URL ?>/" class="btn btn-outline-secondary">Annuler</a>
                         <button type="submit" class="btn btn-success fw-bold"><i class="fa-solid fa-check me-2"></i>Publier le trajet</button>
                     </div>
 

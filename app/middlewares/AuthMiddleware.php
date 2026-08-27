@@ -13,7 +13,7 @@ class AuthMiddleware
         if (!isset($_SESSION['user'])) {
             $_SESSION['flash_message'] = "Vous devez être connecté pour accéder à cette page.";
             $_SESSION['flash_type'] = "warning";
-            header('Location: /login');
+            header('Location: ' . BASE_URL . '/login');
             exit;
         }
 

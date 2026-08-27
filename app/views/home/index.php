@@ -49,10 +49,10 @@
                                 </button>
           
                                 <?php if ($_SESSION['user']['id_user'] == $ride['id_user']): ?>
-                                    <a href="/ride/edit/<?= $ride['id_trajet'] ?>" class="btn btn-outline-secondary" title="Modifier">
+                                    <a href="<?= BASE_URL ?>/ride/edit/<?= $ride['id_trajet'] ?>" class="btn btn-outline-secondary" title="Modifier">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <a href="/ride/delete/<?= $ride['id_trajet'] ?>" class="btn btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce trajet ? Cette action est irréversible.');">
+                                    <a href="<?= BASE_URL ?>/ride/delete/<?= $ride['id_trajet'] ?>" class="btn btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce trajet ? Cette action est irréversible.');">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 <?php endif; ?>
@@ -91,7 +91,7 @@
                             </div>
                             
                         <?php else: ?>
-                            <a href="/application_MVC_PHP/login" class="btn btn-secondary w-100">Connectez-vous pour voir</a>
+                            <a href="<?= BASE_URL ?>/login" class="btn btn-secondary w-100">Connectez-vous pour voir</a>
                         <?php endif; ?>
                     </div>
                 </div>

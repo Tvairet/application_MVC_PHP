@@ -8,7 +8,7 @@ ob_start();
         <h1 class="display-6 text-primary fw-bold mb-0">Tous les trajets</h1>
         <p class="text-muted">Consultez et gérez l'ensemble des trajets publiés.</p>
     </div>
-    <a href="/admin" class="btn btn-outline-secondary">
+    <a href="<?= BASE_URL ?>/admin" class="btn btn-outline-secondary">
         <i class="fa-solid fa-arrow-left me-1"></i> Retour
     </a>
 </div>
@@ -49,7 +49,7 @@ ob_start();
                                     <span class="badge bg-light text-primary border"><?= $ride['nb_places_dispo'] ?> / <?= $ride['nb_places_total'] ?></span>
                                 </td>
                                 <td class="text-end pe-4">
-                                    <a href="/admin/rides/delete/<?= $ride['id_trajet'] ?>" class="btn btn-sm btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce trajet en tant qu\'administrateur ?');">
+                                    <a href="<?= BASE_URL ?>/admin/rides/delete/<?= $ride['id_trajet'] ?>" class="btn btn-sm btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce trajet en tant qu\'administrateur ?');">
                                         <i class="fa-solid fa-trash-can me-1"></i> Supprimer
                                     </a>
                                 </td>
