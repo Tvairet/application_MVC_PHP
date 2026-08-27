@@ -79,6 +79,7 @@ Installation
 1. Placer le projet
 
 Telecharger le projet via le liens GitHub
+
 Avec XAMPP, placer le projet dans :
 
 C:\xampp\htdocs\application_MVC_PHP
