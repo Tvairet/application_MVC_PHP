@@ -3,7 +3,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             
             <!-- Nom de l'application à gauche -->
-            <a href="/application_MVC_PHP/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-auto fs-4 fw-bold">
+            <a href="<?= BASE_URL ?>/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-auto fs-4 fw-bold">
                 <i class="fa-solid fa-car-side me-2"></i> Covoiturage Pro
             </a>
 
@@ -13,15 +13,15 @@
                     
                     <?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1): ?>
                         <!-- Menu Administrateur -->
-                        <a href="/application_MVC_PHP/admin/users" class="btn btn-outline-light me-2">Utilisateurs</a>
-                        <a href="/application_MVC_PHP/admin/agencies" class="btn btn-outline-light me-2">Agences</a>
-                        <a href="/application_MVC_PHP/admin/rides" class="btn btn-outline-light me-2">Trajets</a>
-                        <a href="/application_MVC_PHP/logout" class="btn btn-danger">Déconnexion</a>
+                        <a href="<?= BASE_URL ?>/admin/users" class="btn btn-outline-light me-2">Utilisateurs</a>
+                        <a href="<?= BASE_URL ?>/admin/agencies" class="btn btn-outline-light me-2">Agences</a>
+                        <a href="<?= BASE_URL ?>/admin/rides" class="btn btn-outline-light me-2">Trajets</a>
+                        <a href="<?= BASE_URL ?>/logout" class="btn btn-danger">Déconnexion</a>
                     <?php else: ?>
                         <!-- Menu Utilisateur Connecté -->
                         <span class="me-3 fw-semibold">Bonjour, <?= htmlspecialchars($_SESSION['user']['first_name'] . ' ' . $_SESSION['user']['last_name']) ?></span>
-                        <a href="/application_MVC_PHP/ride/create" class="btn btn-success me-2"><i class="fa-solid fa-plus me-1"></i> Créer un trajet</a>
-                        <a href="/application_MVC_PHP/logout" class="btn btn-danger">Déconnexion</a>
+                        <a href="<?= BASE_URL ?>/ride/create" class="btn btn-success me-2"><i class="fa-solid fa-plus me-1"></i> Créer un trajet</a>
+                        <a href="<?= BASE_URL ?>/logout" class="btn btn-danger">Déconnexion</a>
                     <?php endif; ?>
 
                 <?php else: ?>

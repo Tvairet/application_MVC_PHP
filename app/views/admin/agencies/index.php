@@ -9,10 +9,10 @@ ob_start();
         <p class="text-muted">Gérez les villes de départ et d'arrivée disponibles.</p>
     </div>
     <div>
-        <a href="/admin/agencies/create" class="btn btn-success me-2">
+        <a href="<?= BASE_URL ?>/admin/agencies/create" class="btn btn-success me-2">
             <i class="fa-solid fa-plus me-1"></i> Ajouter une agence
         </a>
-        <a href="/admin" class="btn btn-outline-secondary">
+        <a href="<?= BASE_URL ?>/admin" class="btn btn-outline-secondary">
             <i class="fa-solid fa-arrow-left me-1"></i> Retour
         </a>
     </div>
@@ -38,10 +38,10 @@ ob_start();
                                     <td><span class="fw-bold"><?= htmlspecialchars($agency['name']) ?></span></td>
                                     <td class="text-end pe-4">
                                         <div class="btn-group">
-                                            <a href="/admin/agencies/edit/<?= $agency['id_agency'] ?>" class="btn btn-sm btn-outline-primary" title="Modifier">
+                                            <a href="<?= BASE_URL ?>/admin/agencies/edit/<?= $agency['id_agency'] ?>" class="btn btn-sm btn-outline-primary" title="Modifier">
                                                 <i class="fa-solid fa-pen"></i>
                                             </a>
-                                            <a href="/admin/agencies/delete/<?= $agency['id_agency'] ?>" class="btn btn-sm btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette agence ? Cela pourrait affecter les trajets existants.');">
+                                            <a href="<?= BASE_URL ?>/admin/agencies/delete/<?= $agency['id_agency'] ?>" class="btn btn-sm btn-outline-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette agence ? Cela pourrait affecter les trajets existants.');">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </div>

@@ -8,7 +8,7 @@
                 <span class="badge bg-light text-dark">ID: <?= $ride['id_trajet'] ?></span>
             </div>
             <div class="card-body p-4">
-                <form action="/ride/update/<?= $ride['id_trajet'] ?>" method="POST">
+                <form action="<?= BASE_URL ?>/ride/update/<?= $ride['id_trajet'] ?>" method="POST">
                     
                     <div class="alert alert-warning mb-4">
                         <i class="fa-solid fa-triangle-exclamation me-2"></i><strong>Attention :</strong> Si vous réduisez le nombre de places, assurez-vous de ne pas dépasser le nombre de places déjà réservées.
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <a href="/" class="btn btn-outline-secondary">Annuler</a>
+                        <a href="<?= BASE_URL ?>/" class="btn btn-outline-secondary">Annuler</a>
                         <button type="submit" class="btn btn-primary fw-bold"><i class="fa-solid fa-save me-2"></i>Enregistrer les modifications</button>
                     </div>
 

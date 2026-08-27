@@ -23,9 +23,11 @@ $dotenv->load();
 $router = new Router([
     'paths' => [
         'controllers' => __DIR__ . '/../app/Controllers',
+        'middlewares' => __DIR__ . '/../app/Middlewares',
     ],
     'namespaces' => [
         'controllers' => 'App\Controllers',
+        'middlewares' => 'App\Middlewares',
     ],
     'base_folder' => '/application_MVC_PHP',
 ]);
@@ -40,33 +42,33 @@ $router->get('/logout', 'AuthController@logout');
 
 // Routes protégées par authentification (Trajets)
 $router->group('/ride', function($router) {
-    $router->get('/create', 'RideController@create', ['before' => 'App\Middlewares\AuthMiddleware']);
-    $router->post('/store', 'RideController@store', ['before' => 'App\Middlewares\AuthMiddleware']);
+    $router->get('/create', 'RideController@create', ['before' => 'AuthMiddleware']);
+    $router->post('/store', 'RideController@store', ['before' => 'AuthMiddleware']);
     
     // Modification et suppression
-    $router->get('/edit/[:id]', 'RideController@edit', ['before' => 'App\Middlewares\AuthMiddleware']);
-    $router->post('/update/[:id]', 'RideController@update', ['before' => 'App\Middlewares\AuthMiddleware']);
-    $router->any('/delete/[:id]', 'RideController@delete', ['before' => 'App\Middlewares\AuthMiddleware']);
+    $router->get('/edit/:id', 'RideController@edit', ['before' => 'AuthMiddleware']);
+    $router->post('/update/:id', 'RideController@update', ['before' => 'AuthMiddleware']);
+    $router->any('/delete/:id', 'RideController@delete', ['before' => 'AuthMiddleware']);
 });
 
 // Routes d'administration
 $router->group('/admin', function($router) {
-    $router->get('/', 'AdminController@index', ['before' => 'App\Middlewares\AdminMiddleware']);
+    $router->get('/', 'AdminController@index', ['before' => 'AdminMiddleware']);
     
     // Gestion des utilisateurs
-    $router->get('/users', 'AdminController@users', ['before' => 'App\Middlewares\AdminMiddleware']);
+    $router->get('/users', 'AdminController@users', ['before' => 'AdminMiddleware']);
     
     // Gestion des agences
-    $router->get('/agencies', 'AdminController@agencies', ['before' => 'App\Middlewares\AdminMiddleware']);
-    $router->get('/agencies/create', 'AdminController@createAgency', ['before' => 'App\Middlewares\AdminMiddleware']);
-    $router->post('/agencies/store', 'AdminController@storeAgency', ['before' => 'App\Middlewares\AdminMiddleware']);
-    $router->get('/agencies/edit/[:id]', 'AdminController@editAgency', ['before' => 'App\Middlewares\AdminMiddleware']);
-    $router->post('/agencies/update/[:id]', 'AdminController@updateAgency', ['before' => 'App\Middlewares\AdminMiddleware']);
-    $router->any('/agencies/delete/[:id]', 'AdminController@deleteAgency', ['before' => 'App\Middlewares\AdminMiddleware']);
+    $router->get('/agencies', 'AdminController@agencies', ['before' => 'AdminMiddleware']);
+    $router->get('/agencies/create', 'AdminController@createAgency', ['before' => 'AdminMiddleware']);
+    $router->post('/agencies/store', 'AdminController@storeAgency', ['before' => 'AdminMiddleware']);
+    $router->get('/agencies/edit/:id', 'AdminController@editAgency', ['before' => 'AdminMiddleware']);
+    $router->post('/agencies/update/:id', 'AdminController@updateAgency', ['before' => 'AdminMiddleware']);
+    $router->any('/agencies/delete/:id', 'AdminController@deleteAgency', ['before' => 'AdminMiddleware']);
     
     // Modération des trajets
-    $router->get('/rides', 'AdminController@rides', ['before' => 'App\Middlewares\AdminMiddleware']);
-    $router->any('/rides/delete/[:id]', 'AdminController@deleteRide', ['before' => 'App\Middlewares\AdminMiddleware']);
+    $router->get('/rides', 'AdminController@rides', ['before' => 'AdminMiddleware']);
+    $router->any('/rides/delete/:id', 'AdminController@deleteRide', ['before' => 'AdminMiddleware']);
 });
 
 // Exécution du routeur

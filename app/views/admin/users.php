@@ -8,7 +8,7 @@ ob_start();
         <h1 class="display-6 text-primary fw-bold mb-0">Utilisateurs</h1>
         <p class="text-muted">Liste de tous les employés inscrits sur la plateforme.</p>
     </div>
-    <a href="/admin" class="btn btn-outline-secondary">
+    <a href="<?= BASE_URL ?>/admin" class="btn btn-outline-secondary">
         <i class="fa-solid fa-arrow-left me-1"></i> Retour au dashboard
     </a>
 </div>

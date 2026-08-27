@@ -47,7 +47,7 @@ class RideController extends Controller
             if (!$id_agence_depart || !$id_agence_arrivee || empty($gdh_depart) || empty($gdh_arrivee) || !$nb_places_total) {
                 $_SESSION['flash_message'] = "Tous les champs sont requis et doivent être valides.";
                 $_SESSION['flash_type'] = "danger";
-                header('Location: /ride/create');
+                header('Location: ' . BASE_URL . '/ride/create');
                 exit;
             }
 
@@ -55,7 +55,7 @@ class RideController extends Controller
             if ($id_agence_depart === $id_agence_arrivee) {
                 $_SESSION['flash_message'] = "L'agence de départ et d'arrivée doivent être différentes.";
                 $_SESSION['flash_type'] = "warning";
-                header('Location: /ride/create');
+                header('Location: ' . BASE_URL . '/ride/create');
                 exit;
             }
 
@@ -67,14 +67,14 @@ class RideController extends Controller
             if ($dep_time_obj < $now) {
                 $_SESSION['flash_message'] = "La date de départ ne peut pas être dans le passé.";
                 $_SESSION['flash_type'] = "warning";
-                header('Location: /ride/create');
+                header('Location: ' . BASE_URL . '/ride/create');
                 exit;
             }
 
             if ($arr_time_obj <= $dep_time_obj) {
                 $_SESSION['flash_message'] = "La date d'arrivée doit être ultérieure à la date de départ.";
                 $_SESSION['flash_type'] = "warning";
-                header('Location: /ride/create');
+                header('Location: ' . BASE_URL . '/ride/create');
                 exit;
             }
 
@@ -82,7 +82,7 @@ class RideController extends Controller
             if ($nb_places_total <= 0) {
                 $_SESSION['flash_message'] = "Le nombre de places doit être supérieur à 0.";
                 $_SESSION['flash_type'] = "warning";
-                header('Location: /ride/create');
+                header('Location: ' . BASE_URL . '/ride/create');
                 exit;
             }
 
@@ -101,11 +101,11 @@ class RideController extends Controller
             if ($success) {
                 $_SESSION['flash_message'] = "Votre trajet a été publié avec succès !";
                 $_SESSION['flash_type'] = "success";
-                header('Location: /');
+                header('Location: ' . BASE_URL . '/');
             } else {
                 $_SESSION['flash_message'] = "Une erreur est survenue lors de la création du trajet.";
                 $_SESSION['flash_type'] = "danger";
-                header('Location: /ride/create');
+                header('Location: ' . BASE_URL . '/ride/create');
             }
             exit;
         }
@@ -126,7 +126,7 @@ class RideController extends Controller
         if (!$ride || $ride['id_user'] != $_SESSION['user']['id_user']) {
             $_SESSION['flash_message'] = "Vous n'êtes pas autorisé à modifier ce trajet.";
             $_SESSION['flash_type'] = "danger";
-            header('Location: /');
+            header('Location: ' . BASE_URL . '/');
             exit;
         }
 
@@ -157,7 +157,7 @@ class RideController extends Controller
             if (!$ride || $ride['id_user'] != $_SESSION['user']['id_user']) {
                 $_SESSION['flash_message'] = "Vous n'êtes pas autorisé à modifier ce trajet.";
                 $_SESSION['flash_type'] = "danger";
-                header('Location: /');
+                header('Location: ' . BASE_URL . '/');
                 exit;
             }
 
@@ -170,14 +170,14 @@ class RideController extends Controller
             if (!$id_agence_depart || !$id_agence_arrivee || empty($gdh_depart) || empty($gdh_arrivee) || !$nb_places_total) {
                 $_SESSION['flash_message'] = "Tous les champs sont requis.";
                 $_SESSION['flash_type'] = "danger";
-                header("Location: /ride/edit/{$id}");
+                header('Location: ' . BASE_URL . "/ride/edit/{$id}");
                 exit;
             }
 
             if ($id_agence_depart === $id_agence_arrivee) {
                 $_SESSION['flash_message'] = "L'agence de départ et d'arrivée doivent être différentes.";
                 $_SESSION['flash_type'] = "warning";
-                header("Location: /ride/edit/{$id}");
+                header('Location: ' . BASE_URL . "/ride/edit/{$id}");
                 exit;
             }
 
@@ -188,7 +188,7 @@ class RideController extends Controller
             if ($newAvailableSeats < 0) {
                 $_SESSION['flash_message'] = "Vous ne pouvez pas réduire le nombre de places autant car certaines sont déjà réservées.";
                 $_SESSION['flash_type'] = "danger";
-                header("Location: /ride/edit/{$id}");
+                header('Location: ' . BASE_URL . "/ride/edit/{$id}");
                 exit;
             }
 
@@ -204,11 +204,11 @@ class RideController extends Controller
             if ($success) {
                 $_SESSION['flash_message'] = "Le trajet a été mis à jour.";
                 $_SESSION['flash_type'] = "success";
-                header('Location: /');
+                header('Location: ' . BASE_URL . '/');
             } else {
                 $_SESSION['flash_message'] = "Une erreur est survenue lors de la modification.";
                 $_SESSION['flash_type'] = "danger";
-                header("Location: /ride/edit/{$id}");
+                header('Location: ' . BASE_URL . "/ride/edit/{$id}");
             }
             exit;
         }
@@ -228,7 +228,7 @@ class RideController extends Controller
         if (!$ride || $ride['id_user'] != $_SESSION['user']['id_user']) {
             $_SESSION['flash_message'] = "Vous n'êtes pas autorisé à supprimer ce trajet.";
             $_SESSION['flash_type'] = "danger";
-            header('Location: /');
+            header('Location: ' . BASE_URL . '/');
             exit;
         }
 
@@ -242,7 +242,7 @@ class RideController extends Controller
             $_SESSION['flash_type'] = "danger";
         }
 
-        header('Location: /');
+        header('Location: ' . BASE_URL . '/');
         exit;
     }
 }

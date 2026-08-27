@@ -20,7 +20,7 @@ ob_start();
                 </div>
                 <h3 class="fw-bold"><?= $usersCount ?></h3>
                 <p class="text-muted mb-3">Utilisateurs inscrits</p>
-                <a href="/admin/users" class="btn btn-outline-primary btn-sm rounded-pill">Gérer les utilisateurs</a>
+                <a href="<?= BASE_URL ?>/admin/users" class="btn btn-outline-primary btn-sm rounded-pill">Gérer les utilisateurs</a>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ ob_start();
                 </div>
                 <h3 class="fw-bold"><?= $agenciesCount ?></h3>
                 <p class="text-muted mb-3">Agences / Villes</p>
-                <a href="/admin/agencies" class="btn btn-outline-success btn-sm rounded-pill">Gérer les agences</a>
+                <a href="<?= BASE_URL ?>/admin/agencies" class="btn btn-outline-success btn-sm rounded-pill">Gérer les agences</a>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@ ob_start();
                 </div>
                 <h3 class="fw-bold"><?= $ridesCount ?></h3>
                 <p class="text-muted mb-3">Trajets au total</p>
-                <a href="/admin/rides" class="btn btn-outline-warning btn-sm rounded-pill">Modérer les trajets</a>
+                <a href="<?= BASE_URL ?>/admin/rides" class="btn btn-outline-warning btn-sm rounded-pill">Modérer les trajets</a>
             </div>
         </div>
     </div>
@@ -62,11 +62,11 @@ ob_start();
             </div>
             <div class="card-body">
                 <div class="list-group list-group-flush">
-                    <a href="/admin/agencies/create" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center">
+                    <a href="<?= BASE_URL ?>/admin/agencies/create" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center">
                         <span><i class="fa-solid fa-plus-circle me-2 text-success"></i> Ajouter une nouvelle agence</span>
                         <i class="fa-solid fa-chevron-right text-muted small"></i>
                     </a>
-                    <a href="/" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center">
+                    <a href="<?= BASE_URL ?>/" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center">
                         <span><i class="fa-solid fa-eye me-2 text-info"></i> Voir le site public</span>
                         <i class="fa-solid fa-chevron-right text-muted small"></i>
                     </a>

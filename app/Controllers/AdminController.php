@@ -94,19 +94,19 @@ class AdminController extends Controller
         if (empty($name)) {
             $_SESSION['flash_message'] = "Le nom de l'agence est obligatoire.";
             $_SESSION['flash_type'] = "danger";
-            header('Location: /admin/agencies/create');
+            header('Location: ' . BASE_URL . '/admin/agencies/create');
             exit;
         }
 
         if ($this->agencyModel->create($name)) {
             $_SESSION['flash_message'] = "L'agence a été créée avec succès.";
             $_SESSION['flash_type'] = "success";
-            header('Location: /admin/agencies');
+            header('Location: ' . BASE_URL . '/admin/agencies');
             exit;
         } else {
             $_SESSION['flash_message'] = "Erreur lors de la création de l'agence.";
             $_SESSION['flash_type'] = "danger";
-            header('Location: /admin/agencies/create');
+            header('Location: ' . BASE_URL . '/admin/agencies/create');
             exit;
         }
     }
@@ -121,7 +121,7 @@ class AdminController extends Controller
     {
         $agency = $this->agencyModel->getById($id);
         if (!$agency) {
-            header('Location: /admin/agencies');
+            header('Location: ' . BASE_URL . '/admin/agencies');
             exit;
         }
 
@@ -151,7 +151,7 @@ class AdminController extends Controller
         if ($this->agencyModel->update($id, $name)) {
             $_SESSION['flash_message'] = "L'agence a été modifiée avec succès.";
             $_SESSION['flash_type'] = "success";
-            header('Location: /admin/agencies');
+            header('Location: ' . BASE_URL . '/admin/agencies');
             exit;
         } else {
             $_SESSION['flash_message'] = "Erreur lors de la modification de l'agence.";
@@ -176,7 +176,7 @@ class AdminController extends Controller
             $_SESSION['flash_message'] = "Erreur : impossible de supprimer l'agence (elle est peut-être liée à des trajets).";
             $_SESSION['flash_type'] = "danger";
         }
-        header('Location: /admin/agencies');
+        header('Location: ' . BASE_URL . '/admin/agencies');
         exit;
     }
 
@@ -206,7 +206,7 @@ class AdminController extends Controller
             $_SESSION['flash_message'] = "Erreur lors de la suppression du trajet.";
             $_SESSION['flash_type'] = "danger";
         }
-        header('Location: /admin/rides');
+        header('Location: ' . BASE_URL . '/admin/rides');
         exit;
     }
 }
